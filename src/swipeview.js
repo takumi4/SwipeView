@@ -381,6 +381,12 @@ var SwipeView = (function (window, document) {
                 return;
             }
 
+            // On touchmove dist gt pageWidth white screen
+            // Limit one screen each
+            if (!(dist < this.pageWidth)) {
+                this.__pos(-this.page * this.pageWidth + this.directionX);
+            }
+
             this.__checkPosition();
         },
         
